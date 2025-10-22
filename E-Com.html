@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce | Product Grid</title>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+        margin: 0;
+        padding: 40px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #222;
+        margin-bottom: 30px;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-image img {
+        width: 90%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .product-image img:hover {
+        transform: scale(1.05);
+      }
+
+      .product-details {
+        padding: 15px 20px 20px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .product-details h3 {
+        margin: 10px 0 5px;
+        color: #333;
+        font-size: 18px;
+      }
+
+      .rating {
+        color: #ffc107;
+        font-size: 17px;
+        margin-bottom: 6px;
+      }
+
+      .price {
+        font-size: 18px;
+        color: #e63946;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .description {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+
+      .quantity {
+        margin-bottom: 12px;
+      }
+
+      .quantity input {
+        width: 60px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .buttons button {
+        flex: 1;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 0;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        color: white;
+      }
+
+      .cart-btn {
+        background-color: #007bff;
+      }
+
+      .cart-btn:hover {
+        background-color: #0056b3;
+      }
+
+      .buy-btn {
+        background-color: #28a745;
+      }
+
+      .buy-btn:hover {
+        background-color: #1e7e34;
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Our Featured Products</h1>
+
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://tse2.mm.bing.net/th/id/OIP.vh2FSVY3fjEgpvsPtVhPbwHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Headphones"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Smart Wireless Headphones</h3>
+            <div class="rating">⭐⭐⭐⭐☆ (4.2)</div>
+            <div class="price">$2490.99</div>
+            <div class="description">
+              Noise-cancelling, 30-hour battery, premium sound for long
+              sessions.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Smart Wireless Headphones', this)"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="buy-btn"
+              onclick="buyNow('Smart Wireless Headphones', this)"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://www.bhphotovideo.com/images/images2500x2500/apple_mj3t2ll_a_watch_sport_smartwatch_42mm_1187199.jpg"
+            alt="Smart Watch"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Smart Fitness Watch</h3>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.8)</div>
+            <div class="price">$1999.99</div>
+            <div class="description">
+              Tracks heart rate, sleep, and workouts with sleek design.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Smart Fitness Watch', this)"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="buy-btn"
+              onclick="buyNow('Smart Fitness Watch', this)"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://tse4.mm.bing.net/th/id/OIP.V842aSmkIsdAt0AGQ0YjGwHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Camera"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Digital DSLR Camera</h3>
+            <div class="rating">⭐⭐⭐⭐☆ (4.4)</div>
+            <div class="price">$70099.99</div>
+            <div class="description">
+              24MP clarity, fast autofocus, and stunning low-light shots.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Digital DSLR Camera', this)"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="buy-btn"
+              onclick="buyNow('Digital DSLR Camera', this)"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://th.bing.com/th/id/OIP.AH4mh6XGFkbzuoPAXl36cQHaGU?w=257&h=219&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3"
+            alt="Laptop"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Ultra Slim Laptop</h3>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+            <div class="price">$100099.99</div>
+            <div class="description">
+              Lightweight, fast performance with long battery life.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Ultra Slim Laptop', this)"
+            >
+              Add to Cart
+            </button>
+            <button class="buy-btn" onclick="buyNow('Ultra Slim Laptop', this)">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://th.bing.com/th/id/OIP.S4u9ZlHvEVsLT4Xaz8omKwHaDd?w=349&h=163&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3"
+            alt="Speaker"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Bluetooth Speaker</h3>
+            <div class="rating">⭐⭐⭐⭐☆ (4.5)</div>
+            <div class="price">$899.99</div>
+            <div class="description">
+              Rich bass, waterproof body, and 10-hour playtime.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Bluetooth Speaker', this)"
+            >
+              Add to Cart
+            </button>
+            <button class="buy-btn" onclick="buyNow('Bluetooth Speaker', this)">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://th.bing.com/th/id/OIP.Dz-g55rDJAAQ3IiWIybZdQHaHa?w=194&h=194&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3"
+            alt="Shoes"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Running Shoes</h3>
+            <div class="rating">⭐⭐⭐⭐☆ (4.3)</div>
+            <div class="price">$929.99</div>
+            <div class="description">
+              Lightweight and comfortable with breathable fabric.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button class="cart-btn" onclick="addToCart('Running Shoes', this)">
+              Add to Cart
+            </button>
+            <button class="buy-btn" onclick="buyNow('Running Shoes', this)">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://th.bing.com/th/id/OIP.zAoIpfV9KsbFNJKSYg8tegHaIO?w=166&h=184&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3"
+            alt="Bag"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Travel Backpack</h3>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.7)</div>
+            <div class="price">$869.99</div>
+            <div class="description">
+              Durable, water-resistant backpack for everyday travel.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Travel Backpack', this)"
+            >
+              Add to Cart
+            </button>
+            <button class="buy-btn" onclick="buyNow('Travel Backpack', this)">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="data:image/webp;base64,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"
+            alt="Phone"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Samsung S23 ultra</h3>
+            <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+            <div class="price">$90099.99</div>
+            <div class="description">
+              Flagship performance with high-end camera and OLED display.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Smartphone Pro', this)"
+            >
+              Add to Cart
+            </button>
+            <button class="buy-btn" onclick="buyNow('Smartphone Pro', this)">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://th.bing.com/th/id/OIP.v5bCEiiAwA1f2fSXyth9hAHaDR?w=324&h=154&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3"
+            alt="Sunglasses"
+          />
+        </div>
+        <div class="product-details">
+          <div>
+            <h3>Stylish Sunglasses</h3>
+            <div class="rating">⭐⭐⭐⭐ (4.1)</div>
+            <div class="price">$459.99</div>
+            <div class="description">
+              UV-protected lenses with lightweight, trendy frame.
+            </div>
+            <div class="quantity">
+              Qty: <input type="number" value="1" min="1" />
+            </div>
+          </div>
+          <div class="buttons">
+            <button
+              class="cart-btn"
+              onclick="addToCart('Stylish Sunglasses', this)"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="buy-btn"
+              onclick="buyNow('Stylish Sunglasses', this)"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function addToCart(productName, button) {
+        const card = button.closest(".product-card");
+        const quantity = card.querySelector("input").value;
+        alert(`🛒 Added ${quantity} ${productName}(s) to your cart!`);
+      }
+
+      function buyNow(productName, button) {
+        const card = button.closest(".product-card");
+        const quantity = card.querySelector("input").value;
+        alert(`💳 Proceeding to buy ${quantity} ${productName}(s)!`);
+      }
+    </script>
+  </body>
+</html>
